@@ -33,7 +33,8 @@
 }
 
 - (IBAction)didTapLogin:(id)sender {
-    [rdio authorizeFromController:self];
+    //[rdio authorizeFromController:self];
+    [self queryLocalData];
 }
 
 - (void)rdioDidAuthorizeUser:(NSDictionary *)user withAccessToken:(NSString *)accessToken {
@@ -44,6 +45,8 @@
     [curUser saveEventually];
     [self queryLocalData];
 }
+
+
 
 /**
  * Authentication failed so we should alert the user.
@@ -61,6 +64,7 @@
         geopoint = geoPoint;
         [query whereKey:@"location" nearGeoPoint:geoPoint];
         [query setLimit:50];
+        [query addDescendingOrder:@"createdAt"];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             tableData = objects;
             [self performSegueWithIdentifier:@"splashToMain" sender:self];

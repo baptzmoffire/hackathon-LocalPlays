@@ -12,5 +12,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) Rdio *rdio;
+@property (strong, nonatomic) NSArray *tableData;
+
++ (Rdio*)rdioInstance;
 
 @end

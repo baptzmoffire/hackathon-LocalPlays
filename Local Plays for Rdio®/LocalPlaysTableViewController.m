@@ -59,7 +59,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    NSLog(@"Local Plays View Appearing");
     [self.tableView reloadData];
+    [self.tableView updateConstraints];
 }
 
 - (void)didTapSearch:(id)sender {
@@ -68,8 +70,8 @@
     [searchTextField resignFirstResponder];
     NSString *searchText = searchTextField.text;
     searchTextField.text = @"";
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     if (searchText.length > 3) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         searchValue = searchText;
         //NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:searchValue, @"query", @"Track", @"types", @"20", @"count", nil];
         NSLog(@"Calling Rdio API search");
@@ -110,22 +112,29 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSLog(@"Asked for COUNT");
     return tableData.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //NSLog(@"%@",indexPath);
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
+    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cellBg"]];
+        
     PFObject *cellData = [tableData objectAtIndex:indexPath.row];
     NSURL *url = [NSURL URLWithString:[cellData objectForKey:@"icon"]];
-    UIImageView *thumb = (UIImageView *)[self.view viewWithTag:1];
+    UIImageView *thumb = (UIImageView *)[cell viewWithTag:1];
     thumb.image = nil;
+    
     [thumb setImageWithURL:url];
     
-    UILabel *trackLabel = (UILabel *)[self.view viewWithTag:2];
-    UILabel *artistLabel = (UILabel *)[self.view viewWithTag:3];
+    UILabel *trackLabel = (UILabel *)[cell viewWithTag:2];
+    UILabel *artistLabel = (UILabel *)[cell viewWithTag:3];
+    trackLabel.text = @"";
+    artistLabel.text = @"";
     trackLabel.text = [cellData objectForKey:@"name"];
     artistLabel.text = [cellData objectForKey:@"artist"];
     
@@ -141,6 +150,11 @@
     NSDictionary *cellData = [tableData objectAtIndex:indexPath.row];
     [rdio.player playSource:[cellData objectForKey:@"sourceKey"]];
 
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return 80.0f;
 }
 
 @end

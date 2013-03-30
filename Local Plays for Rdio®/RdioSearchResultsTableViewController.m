@@ -7,6 +7,8 @@
 //
 
 #import "RdioSearchResultsTableViewController.h"
+#import "AppDelegate.h"
+#import "LocalPlaysTableViewController.h"
 
 @interface RdioSearchResultsTableViewController ()
 
@@ -68,14 +70,16 @@
     static NSString *CellIdentifier = @"SearchCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
 
+    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cellBg"]];
+
     NSDictionary *cellData = [searchResults objectAtIndex:indexPath.row];
     NSURL *url = [NSURL URLWithString:[cellData objectForKey:@"icon"]];
-    UIImageView *thumb = (UIImageView *)[self.view viewWithTag:1];
+    UIImageView *thumb = (UIImageView *)[cell viewWithTag:1];
     thumb.image = nil;
     [thumb setImageWithURL:url];
     
-    UILabel *trackLabel = (UILabel *)[self.view viewWithTag:2];
-    UILabel *artistLabel = (UILabel *)[self.view viewWithTag:3];
+    UILabel *trackLabel = (UILabel *)[cell viewWithTag:2];
+    UILabel *artistLabel = (UILabel *)[cell viewWithTag:3];
     trackLabel.text = [cellData objectForKey:@"name"];
     artistLabel.text = [cellData objectForKey:@"artist"];
     
@@ -97,8 +101,24 @@
     [entry setObject:[cellData objectForKey:@"name"] forKey:@"name"];
     [entry saveEventually];
     
-    tableData = [tableData arrayByAddingObject:entry];
+    //tableData = [tableData arrayByAddingObject:entry];
+    
+    NSMutableArray *temp = [[NSMutableArray alloc] initWithArray:tableData];
+    [temp insertObject:entry atIndex:0];
+    tableData = (NSArray *)temp;
+    
+    LocalPlaysTableViewController *lptvc = (LocalPlaysTableViewController *)[self.navigationController.viewControllers objectAtIndex:1];
+    //AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    [ad updateTableData:objects];
+    lptvc.tableData = tableData;
+    [lptvc.tableView reloadData];
+    
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    return 80.0f;
 }
 
 @end

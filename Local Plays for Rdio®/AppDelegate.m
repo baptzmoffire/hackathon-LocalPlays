@@ -10,7 +10,14 @@
 
 @implementation AppDelegate
 
-@synthesize rdio;
+@synthesize rdio, tableData;
+
++ (Rdio*)rdioInstance {
+    return [(AppDelegate*)[[UIApplication sharedApplication] delegate] rdio];
+}
+
+
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
