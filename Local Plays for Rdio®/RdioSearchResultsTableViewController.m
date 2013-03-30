@@ -14,7 +14,7 @@
 
 @implementation RdioSearchResultsTableViewController
 
-@synthesize searchResults, rdio, geopoint;
+@synthesize searchResults, rdio, geopoint, tableData;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -29,6 +29,14 @@
 {
     [super viewDidLoad];
 
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 62.0f)];
+    headerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"resultsHeader"]];
+    UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTouchHeader:)];
+    
+    [headerView addGestureRecognizer:ges];
+    
+    self.tableView.tableHeaderView = headerView;
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -36,10 +44,9 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning
+- (void)didTouchHeader:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Table view data source
@@ -89,6 +96,8 @@
     [entry setObject:[cellData objectForKey:@"artist"] forKey:@"artist"];
     [entry setObject:[cellData objectForKey:@"name"] forKey:@"name"];
     [entry saveEventually];
+    
+    tableData = [tableData arrayByAddingObject:entry];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

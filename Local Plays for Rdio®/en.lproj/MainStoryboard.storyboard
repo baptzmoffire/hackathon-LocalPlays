@@ -85,8 +85,38 @@
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ir-yK-0gu">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="FjY-FY-pGM"/>
+                                                <constraint firstAttribute="height" constant="60" id="dlH-O0-5dW"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2e-my-ylj">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="223" id="Igv-vd-QMg"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMU-KQ-KMK">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="rMU-KQ-KMK" firstAttribute="leading" secondItem="1ir-yK-0gu" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="92E-Ea-6ci"/>
+                                    <constraint firstItem="1ir-yK-0gu" firstAttribute="leading" secondItem="Bya-eH-y1I" secondAttribute="leading" constant="10" id="DP6-2n-q1R"/>
+                                    <constraint firstItem="b2e-my-ylj" firstAttribute="top" secondItem="1ir-yK-0gu" secondAttribute="top" type="default" id="Gp8-JC-RxD"/>
+                                    <constraint firstItem="1ir-yK-0gu" firstAttribute="centerY" secondItem="Bya-eH-y1I" secondAttribute="centerY" type="default" id="Z6c-HF-z5D"/>
+                                    <constraint firstItem="rMU-KQ-KMK" firstAttribute="trailing" secondItem="b2e-my-ylj" secondAttribute="trailing" type="default" id="eDn-9j-9lJ"/>
+                                    <constraint firstItem="b2e-my-ylj" firstAttribute="leading" secondItem="1ir-yK-0gu" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="pdx-6O-ZOb"/>
+                                    <constraint firstItem="rMU-KQ-KMK" firstAttribute="bottom" secondItem="1ir-yK-0gu" secondAttribute="bottom" type="default" id="rUJ-kC-mGQ"/>
+                                </constraints>
                             </tableViewCell>
                         </prototypes>
                         <connections>

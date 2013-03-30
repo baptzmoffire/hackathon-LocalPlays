@@ -56,7 +56,20 @@
 		6D97133D1707801000B50B57 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9713331707801000B50B57 /* UIImageView+WebCache.m */; };
 		6D971340170780F100B50B57 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D97133E170780F100B50B57 /* ImageIO.framework */; };
 		6D971341170780F100B50B57 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D97133F170780F100B50B57 /* MapKit.framework */; };
+		6D97134A17078A6900B50B57 /* libMBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D97134917078A5000B50B57 /* libMBProgressHUD.a */; };
+		6D97134D17078C3300B50B57 /* resultsHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D97134B17078C3300B50B57 /* resultsHeader.png */; };
+		6D97134E17078C3300B50B57 /* resultsHeader@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D97134C17078C3300B50B57 /* resultsHeader@2x.png */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6D97134817078A5000B50B57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6D97134417078A5000B50B57 /* MBProgressHUD.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D286A7491518C70F00E13FB8;
+			remoteInfo = MBProgressHUD;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		6D9712BB170754B900B50B57 /* Local Plays for Rdio®.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Local Plays for Rdio®.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +139,9 @@
 		6D9713331707801000B50B57 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		6D97133E170780F100B50B57 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		6D97133F170780F100B50B57 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		6D97134417078A5000B50B57 /* MBProgressHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MBProgressHUD.xcodeproj; path = ../MBProgressHUD/MBProgressHUD.xcodeproj; sourceTree = "<group>"; };
+		6D97134B17078C3300B50B57 /* resultsHeader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = resultsHeader.png; sourceTree = "<group>"; };
+		6D97134C17078C3300B50B57 /* resultsHeader@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resultsHeader@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D97134A17078A6900B50B57 /* libMBProgressHUD.a in Frameworks */,
 				6D971340170780F100B50B57 /* ImageIO.framework in Frameworks */,
 				6D971341170780F100B50B57 /* MapKit.framework in Frameworks */,
 				6D9712F41707555800B50B57 /* Accounts.framework in Frameworks */,
@@ -163,6 +180,7 @@
 		6D9712B2170754B900B50B57 = {
 			isa = PBXGroup;
 			children = (
+				6D97134417078A5000B50B57 /* MBProgressHUD.xcodeproj */,
 				6D9712C4170754B900B50B57 /* Local Plays for Rdio® */,
 				6D9712BD170754B900B50B57 /* Frameworks */,
 				6D9712BC170754B900B50B57 /* Products */,
@@ -238,6 +256,8 @@
 		6D97130717075A3300B50B57 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				6D97134B17078C3300B50B57 /* resultsHeader.png */,
+				6D97134C17078C3300B50B57 /* resultsHeader@2x.png */,
 				6D9713131707671A00B50B57 /* headerBackground.png */,
 				6D9713141707671A00B50B57 /* headerBackground@2x.png */,
 				6D9713151707671A00B50B57 /* searchButton.png */,
@@ -281,6 +301,14 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		6D97134517078A5000B50B57 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6D97134917078A5000B50B57 /* libMBProgressHUD.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -320,12 +348,28 @@
 			mainGroup = 6D9712B2170754B900B50B57;
 			productRefGroup = 6D9712BC170754B900B50B57 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 6D97134517078A5000B50B57 /* Products */;
+					ProjectRef = 6D97134417078A5000B50B57 /* MBProgressHUD.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				6D9712BA170754B900B50B57 /* Local Plays for Rdio® */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		6D97134917078A5000B50B57 /* libMBProgressHUD.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMBProgressHUD.a;
+			remoteRef = 6D97134817078A5000B50B57 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6D9712B9170754B900B50B57 /* Resources */ = {
@@ -345,6 +389,8 @@
 				6D9713181707671A00B50B57 /* headerBackground@2x.png in Resources */,
 				6D9713191707671A00B50B57 /* searchButton.png in Resources */,
 				6D97131A1707671A00B50B57 /* searchButton@2x.png in Resources */,
+				6D97134D17078C3300B50B57 /* resultsHeader.png in Resources */,
+				6D97134E17078C3300B50B57 /* resultsHeader@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,4 +15,5 @@
     #import <Rdio/Rdio.h>
     #import <Rdio/RDAPIRequest.h>
     #import "UIImageView+WebCache.h"
+    #import <MBProgressHUD/MBProgressHUD.h>
 #endif

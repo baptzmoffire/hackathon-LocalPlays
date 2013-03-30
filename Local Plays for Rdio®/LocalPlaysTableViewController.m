@@ -57,11 +57,18 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
 - (void)didTapSearch:(id)sender {
     NSLog(@"Did tap search..");
     UITextField *searchTextField = (UITextField *)[self.headerView viewWithTag:9001];
     [searchTextField resignFirstResponder];
     NSString *searchText = searchTextField.text;
+    searchTextField.text = @"";
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     if (searchText.length > 3) {
         searchValue = searchText;
         //NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:searchValue, @"query", @"Track", @"types", @"20", @"count", nil];
@@ -77,6 +84,7 @@
     NSLog(@"Returned from API Call to Rdio");
     NSLog(@"%@",data);
     searchResults = (NSArray *)[(NSDictionary *)data objectForKey:@"results"];
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     [self performSegueWithIdentifier:@"mainToSearch" sender:self];
 }
 
@@ -89,6 +97,7 @@
     resultsController.searchResults = searchResults;
     resultsController.rdio = rdio;
     resultsController.geopoint = geopoint;
+    resultsController.tableData = tableData;
 }
 
 #pragma mark - Table view data source
@@ -109,8 +118,16 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
-    cell.textLabel.text = [(PFObject *)[tableData objectAtIndex:indexPath.row] objectForKey:@"sourceKey"];
+    PFObject *cellData = [tableData objectAtIndex:indexPath.row];
+    NSURL *url = [NSURL URLWithString:[cellData objectForKey:@"icon"]];
+    UIImageView *thumb = (UIImageView *)[self.view viewWithTag:1];
+    thumb.image = nil;
+    [thumb setImageWithURL:url];
+    
+    UILabel *trackLabel = (UILabel *)[self.view viewWithTag:2];
+    UILabel *artistLabel = (UILabel *)[self.view viewWithTag:3];
+    trackLabel.text = [cellData objectForKey:@"name"];
+    artistLabel.text = [cellData objectForKey:@"artist"];
     
     return cell;
 }
@@ -121,13 +138,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    NSDictionary *cellData = [tableData objectAtIndex:indexPath.row];
+    [rdio.player playSource:[cellData objectForKey:@"sourceKey"]];
+
 }
 
 @end

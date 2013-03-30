@@ -11,6 +11,7 @@
 @interface RdioSearchResultsTableViewController : UITableViewController
 
 @property (strong, nonatomic) NSArray *searchResults;
+@property (strong, nonatomic) NSArray *tableData;
 @property (strong, nonatomic) Rdio *rdio;
 @property (strong, nonatomic) PFGeoPoint *geopoint;
 
