@@ -16,7 +16,7 @@
 
 @implementation ViewController
 
-@synthesize loginButton, rdio, activityIndicator, tableData;
+@synthesize loginButton, rdio, activityIndicator, tableData, geopoint;
 
 - (void)viewDidLoad
 {
@@ -58,6 +58,7 @@
     [activityIndicator startAnimating];
     PFQuery *query = [PFQuery queryWithClassName:@"LocalPlays"];
     [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
+        geopoint = geoPoint;
         [query whereKey:@"location" nearGeoPoint:geoPoint];
         [query setLimit:50];
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -72,5 +73,6 @@
     LocalPlaysTableViewController *lptvc = (LocalPlaysTableViewController *)segue.destinationViewController;
     lptvc.rdio = rdio;
     lptvc.tableData = tableData;
+    lptvc.geopoint = geopoint;
 }
 @end

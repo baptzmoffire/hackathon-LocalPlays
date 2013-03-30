@@ -14,7 +14,7 @@
 
 @implementation RdioSearchResultsTableViewController
 
-@synthesize searchResults;
+@synthesize searchResults, rdio, geopoint;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -67,6 +67,11 @@
     thumb.image = nil;
     [thumb setImageWithURL:url];
     
+    UILabel *trackLabel = (UILabel *)[self.view viewWithTag:2];
+    UILabel *artistLabel = (UILabel *)[self.view viewWithTag:3];
+    trackLabel.text = [cellData objectForKey:@"name"];
+    artistLabel.text = [cellData objectForKey:@"artist"];
+    
     return cell;
 }
 
@@ -74,13 +79,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    NSDictionary *cellData = [searchResults objectAtIndex:indexPath.row];
+    [rdio.player playSource:[cellData objectForKey:@"key"]];
+    
+    PFObject *entry = [[PFObject alloc] initWithClassName:@"LocalPlays"];
+    [entry setObject:geopoint forKey:@"location"];
+    [entry setObject:[cellData objectForKey:@"key"] forKey:@"sourceKey"];
+    [entry setObject:[cellData objectForKey:@"icon"] forKey:@"icon"];
+    [entry setObject:[cellData objectForKey:@"artist"] forKey:@"artist"];
+    [entry setObject:[cellData objectForKey:@"name"] forKey:@"name"];
+    [entry saveEventually];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

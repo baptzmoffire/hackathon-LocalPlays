@@ -15,7 +15,7 @@
 
 @implementation LocalPlaysTableViewController
 
-@synthesize tableData, headerView, searchValue, rdio, searchResults;
+@synthesize tableData, headerView, searchValue, rdio, searchResults, geopoint;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -87,6 +87,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     RdioSearchResultsTableViewController *resultsController = (RdioSearchResultsTableViewController *)segue.destinationViewController;
     resultsController.searchResults = searchResults;
+    resultsController.rdio = rdio;
+    resultsController.geopoint = geopoint;
 }
 
 #pragma mark - Table view data source

@@ -125,12 +125,30 @@
                                                 <constraint firstAttribute="height" constant="60" id="XjD-Lu-Kmq"/>
                                             </constraints>
                                         </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ld6-0z-U3d">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="223" id="pSE-UF-M5D"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wkK-bO-1NE">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="Gl9-6c-D29" firstAttribute="leading" secondItem="RjM-u0-7w0" secondAttribute="leading" constant="9" id="b16-ao-jRD"/>
+                                    <constraint firstItem="wkK-bO-1NE" firstAttribute="leading" secondItem="Gl9-6c-D29" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="7C6-uo-zEk"/>
+                                    <constraint firstItem="Ld6-0z-U3d" firstAttribute="top" secondItem="Gl9-6c-D29" secondAttribute="top" type="default" id="7aZ-TW-MAk"/>
+                                    <constraint firstAttribute="trailing" secondItem="wkK-bO-1NE" secondAttribute="trailing" constant="20" type="default" id="QMe-1h-UDV"/>
+                                    <constraint firstItem="Ld6-0z-U3d" firstAttribute="leading" secondItem="Gl9-6c-D29" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="bK2-Jq-P9U"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ld6-0z-U3d" secondAttribute="trailing" constant="20" type="default" id="jju-3R-kZp"/>
                                     <constraint firstItem="Gl9-6c-D29" firstAttribute="centerY" secondItem="RjM-u0-7w0" secondAttribute="centerY" type="default" id="m0I-PG-Lcd"/>
+                                    <constraint firstItem="wkK-bO-1NE" firstAttribute="bottom" secondItem="Gl9-6c-D29" secondAttribute="bottom" type="default" id="v9x-Ie-VUd"/>
                                 </constraints>
                             </tableViewCell>
                         </prototypes>
@@ -150,25 +168,6 @@
         <image name="launchBackground.png" width="320" height="548"/>
         <image name="loginButton.png" width="208" height="58"/>
     </resources>
-    <classes>
-        <class className="LocalPlaysTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocalPlaysTableViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="RdioSearchResultsTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RdioSearchResultsTableViewController.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="didTapLogin:"/>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

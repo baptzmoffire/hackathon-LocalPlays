@@ -15,5 +15,7 @@
 @property (strong, nonatomic) UIView *headerView;
 @property (strong, nonatomic) NSString *searchValue;
 @property (strong, nonatomic) NSArray *searchResults;
+@property (strong, nonatomic) PFGeoPoint *geopoint;
+
 
 @end

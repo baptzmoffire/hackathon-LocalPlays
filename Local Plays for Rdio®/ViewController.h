@@ -15,5 +15,6 @@
 @property (strong, nonatomic) Rdio *rdio;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) NSArray *tableData;
+@property (strong, nonatomic) PFGeoPoint *geopoint;
 
 @end
