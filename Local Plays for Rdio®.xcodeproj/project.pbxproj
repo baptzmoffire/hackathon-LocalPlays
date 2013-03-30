@@ -61,6 +61,8 @@
 		6D97134E17078C3300B50B57 /* resultsHeader@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D97134C17078C3300B50B57 /* resultsHeader@2x.png */; };
 		6D9713511707A25800B50B57 /* cellBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D97134F1707A25800B50B57 /* cellBg.png */; };
 		6D9713521707A25800B50B57 /* cellBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D9713501707A25800B50B57 /* cellBg@2x.png */; };
+		6D9713541707A67C00B50B57 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D9713531707A67C00B50B57 /* icon.png */; };
+		6D9713561707A67F00B50B57 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D9713551707A67F00B50B57 /* icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +148,8 @@
 		6D97134C17078C3300B50B57 /* resultsHeader@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resultsHeader@2x.png"; sourceTree = "<group>"; };
 		6D97134F1707A25800B50B57 /* cellBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellBg.png; sourceTree = "<group>"; };
 		6D9713501707A25800B50B57 /* cellBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cellBg@2x.png"; sourceTree = "<group>"; };
+		6D9713531707A67C00B50B57 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
+		6D9713551707A67F00B50B57 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +264,8 @@
 		6D97130717075A3300B50B57 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				6D9713551707A67F00B50B57 /* icon@2x.png */,
+				6D9713531707A67C00B50B57 /* icon.png */,
 				6D97134F1707A25800B50B57 /* cellBg.png */,
 				6D9713501707A25800B50B57 /* cellBg@2x.png */,
 				6D97134B17078C3300B50B57 /* resultsHeader.png */,
@@ -399,6 +405,8 @@
 				6D97134E17078C3300B50B57 /* resultsHeader@2x.png in Resources */,
 				6D9713511707A25800B50B57 /* cellBg.png in Resources */,
 				6D9713521707A25800B50B57 /* cellBg@2x.png in Resources */,
+				6D9713541707A67C00B50B57 /* icon.png in Resources */,
+				6D9713561707A67F00B50B57 /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
