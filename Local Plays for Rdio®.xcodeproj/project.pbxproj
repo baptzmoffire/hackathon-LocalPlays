@@ -39,6 +39,10 @@
 		6D97130E17075A5500B50B57 /* loginButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D97130C17075A5500B50B57 /* loginButton.png */; };
 		6D97130F17075A5500B50B57 /* loginButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D97130D17075A5500B50B57 /* loginButton@2x.png */; };
 		6D97131217075DFA00B50B57 /* LocalPlaysTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D97131117075DF900B50B57 /* LocalPlaysTableViewController.m */; };
+		6D9713171707671A00B50B57 /* headerBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D9713131707671A00B50B57 /* headerBackground.png */; };
+		6D9713181707671A00B50B57 /* headerBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D9713141707671A00B50B57 /* headerBackground@2x.png */; };
+		6D9713191707671A00B50B57 /* searchButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D9713151707671A00B50B57 /* searchButton.png */; };
+		6D97131A1707671A00B50B57 /* searchButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D9713161707671A00B50B57 /* searchButton@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +84,10 @@
 		6D97130D17075A5500B50B57 /* loginButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginButton@2x.png"; sourceTree = "<group>"; };
 		6D97131017075DF900B50B57 /* LocalPlaysTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalPlaysTableViewController.h; sourceTree = "<group>"; };
 		6D97131117075DF900B50B57 /* LocalPlaysTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalPlaysTableViewController.m; sourceTree = "<group>"; };
+		6D9713131707671A00B50B57 /* headerBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headerBackground.png; sourceTree = "<group>"; };
+		6D9713141707671A00B50B57 /* headerBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "headerBackground@2x.png"; sourceTree = "<group>"; };
+		6D9713151707671A00B50B57 /* searchButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchButton.png; sourceTree = "<group>"; };
+		6D9713161707671A00B50B57 /* searchButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchButton@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +193,10 @@
 		6D97130717075A3300B50B57 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				6D9713131707671A00B50B57 /* headerBackground.png */,
+				6D9713141707671A00B50B57 /* headerBackground@2x.png */,
+				6D9713151707671A00B50B57 /* searchButton.png */,
+				6D9713161707671A00B50B57 /* searchButton@2x.png */,
 				6D97130C17075A5500B50B57 /* loginButton.png */,
 				6D97130D17075A5500B50B57 /* loginButton@2x.png */,
 				6D97130817075A4A00B50B57 /* launchBackground.png */,
@@ -256,6 +268,10 @@
 				6D97130B17075A4A00B50B57 /* launchBackground@2x.png in Resources */,
 				6D97130E17075A5500B50B57 /* loginButton.png in Resources */,
 				6D97130F17075A5500B50B57 /* loginButton@2x.png in Resources */,
+				6D9713171707671A00B50B57 /* headerBackground.png in Resources */,
+				6D9713181707671A00B50B57 /* headerBackground@2x.png in Resources */,
+				6D9713191707671A00B50B57 /* searchButton.png in Resources */,
+				6D97131A1707671A00B50B57 /* searchButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

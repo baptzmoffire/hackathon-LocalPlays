@@ -28,6 +28,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 88.0f)];
+    headerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"headerBackground"]];
+    
+    UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    searchButton.frame = CGRectMake(263.0f,26.0f,57.0f,57.0f);
+    [searchButton setBackgroundImage:[UIImage imageNamed:@"searchButton"] forState:UIControlStateNormal];
+    [searchButton addTarget:self action:@selector(didTapSearch:) forControlEvents:UIControlEventTouchUpInside];
+    [headerView addSubview:searchButton];
+    
+    self.tableView.tableHeaderView = headerView;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -36,10 +47,8 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)didTapSearch:(id)sender {
+    NSLog(@"Did tap search..");
 }
 
 #pragma mark - Table view data source
