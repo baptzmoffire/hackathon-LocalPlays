@@ -33,8 +33,8 @@
 }
 
 - (IBAction)didTapLogin:(id)sender {
-    //[rdio authorizeFromController:self];
-    [self queryLocalData];
+    [rdio authorizeFromController:self];
+    //[self queryLocalData];
 }
 
 - (void)rdioDidAuthorizeUser:(NSDictionary *)user withAccessToken:(NSString *)accessToken {

@@ -33,15 +33,26 @@
                                     <action selector="didTapLogin:" destination="2" eventType="touchUpInside" id="CVr-jJ-Zvo"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="See what people are playing near you!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="H9U-E9-CLT">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="tUW-bh-ghI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="H9U-E9-CLT" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="3GJ-8k-Kfg"/>
                             <constraint firstItem="sn4-Km-xuj" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="3Na-aJ-i7Y"/>
+                            <constraint firstAttribute="trailing" secondItem="H9U-E9-CLT" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="AfY-mE-bhd"/>
                             <constraint firstItem="sn4-Km-xuj" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="UUG-CX-wpn"/>
                             <constraint firstItem="wUE-nn-eRo" firstAttribute="top" secondItem="3" secondAttribute="top" constant="200" id="fMZ-fX-YMd"/>
                             <constraint firstItem="wUE-nn-eRo" firstAttribute="centerX" secondItem="qPu-FN-Kr4" secondAttribute="centerX" type="default" id="jEl-ol-eIE"/>
                             <constraint firstItem="qPu-FN-Kr4" firstAttribute="top" secondItem="3" secondAttribute="top" constant="158" id="k5K-I4-qaH"/>
-                            <constraint firstItem="wUE-nn-eRo" firstAttribute="centerX" secondItem="sn4-Km-xuj" secondAttribute="centerX" type="default" id="nQo-jt-hP8"/>
+                            <constraint firstItem="H9U-E9-CLT" firstAttribute="top" secondItem="3" secondAttribute="top" constant="263" id="mHN-Bb-KxY"/>
+                            <constraint firstItem="wUE-nn-eRo" firstAttribute="centerX" secondItem="H9U-E9-CLT" secondAttribute="centerX" type="default" id="xBv-yc-B29"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IAc-P6-HEH"/>
@@ -198,6 +209,25 @@
         <image name="launchBackground.png" width="320" height="548"/>
         <image name="loginButton.png" width="208" height="58"/>
     </resources>
+    <classes>
+        <class className="LocalPlaysTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocalPlaysTableViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RdioSearchResultsTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RdioSearchResultsTableViewController.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="didTapLogin:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
