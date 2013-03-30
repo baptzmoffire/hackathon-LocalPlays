@@ -13,5 +13,7 @@
 - (IBAction)didTapLogin:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (strong, nonatomic) Rdio *rdio;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) NSArray *tableData;
 
 @end

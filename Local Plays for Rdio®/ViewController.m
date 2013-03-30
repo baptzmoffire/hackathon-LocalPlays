@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "AppDelegate.h"
+#import "LocalPlaysTableViewController.h"
 
 @interface ViewController ()
 
@@ -15,7 +16,7 @@
 
 @implementation ViewController
 
-@synthesize loginButton, rdio;
+@synthesize loginButton, rdio, activityIndicator, tableData;
 
 - (void)viewDidLoad
 {
@@ -53,11 +54,22 @@
 
 - (void)queryLocalData {
     NSLog(@"Querying for Local Plays");
-    [self performSegueWithIdentifier:@"splashToMain" sender:self];
+    [loginButton setHidden:YES];
+    [activityIndicator startAnimating];
+    PFQuery *query = [PFQuery queryWithClassName:@"LocalPlays"];
+    [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
+        [query whereKey:@"location" nearGeoPoint:geoPoint];
+        [query setLimit:50];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            tableData = objects;
+            [self performSegueWithIdentifier:@"splashToMain" sender:self];
+        }];
+    }];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSLog(@"About to segue...");
-    
+    LocalPlaysTableViewController *lptvc = (LocalPlaysTableViewController *)segue.destinationViewController;
+    lptvc.tableData = tableData;
 }
 @end
