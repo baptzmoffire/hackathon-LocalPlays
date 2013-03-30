@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LocalPlaysTableViewController : UITableViewController
+@interface LocalPlaysTableViewController : UITableViewController <RDAPIRequestDelegate>
 
 @property (strong, nonatomic) NSArray *tableData;
 @property (strong, nonatomic) Rdio *rdio;
+@property (strong, nonatomic) UIView *headerView;
+@property (strong, nonatomic) NSString *searchValue;
 
 @end

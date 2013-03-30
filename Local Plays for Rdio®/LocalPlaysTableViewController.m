@@ -14,7 +14,7 @@
 
 @implementation LocalPlaysTableViewController
 
-@synthesize tableData;
+@synthesize tableData, headerView, searchValue;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -29,7 +29,7 @@
 {
     [super viewDidLoad];
     
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 88.0f)];
+    headerView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 88.0f)];
     headerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"headerBackground"]];
     
     UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -37,6 +37,15 @@
     [searchButton setBackgroundImage:[UIImage imageNamed:@"searchButton"] forState:UIControlStateNormal];
     [searchButton addTarget:self action:@selector(didTapSearch:) forControlEvents:UIControlEventTouchUpInside];
     [headerView addSubview:searchButton];
+    
+    UITextField *searchText = [[UITextField alloc] initWithFrame:CGRectMake(10.0f, 30.0f, 240.0f, 42.0f)];
+    searchText.backgroundColor = [UIColor clearColor];
+    searchText.placeholder = @"Search for a track to play";
+    searchText.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    searchText.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    searchText.tag = 9001;
+
+    [headerView addSubview:searchText];
     
     self.tableView.tableHeaderView = headerView;
 
@@ -49,6 +58,23 @@
 
 - (void)didTapSearch:(id)sender {
     NSLog(@"Did tap search..");
+    UITextField *searchTextField = (UITextField *)[self.headerView viewWithTag:9001];
+    NSString *searchText = searchTextField.text;
+    if (searchText.length > 3) {
+        searchValue = searchText;
+        
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Local Plays" message:@"Search string must be at least 4 characters." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+- (void)rdioRequest:(RDAPIRequest *)request didLoadData:(id)data {
+    
+}
+
+- (void)rdioRequest:(RDAPIRequest *)request didFailWithError:(NSError *)error {
+    
 }
 
 #pragma mark - Table view data source
@@ -70,48 +96,12 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    cell.textLabel.text = [(PFObject *)[tableData objectAtIndex:indexPath.row] objectForKey:@"sourceKey"];
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
