@@ -23,7 +23,7 @@
     [super viewDidLoad];
     AppDelegate *ad = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     rdio = ad.rdio;
-    rdio.delegate = self;
+    [rdio setDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,6 +70,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSLog(@"About to segue...");
     LocalPlaysTableViewController *lptvc = (LocalPlaysTableViewController *)segue.destinationViewController;
+    lptvc.rdio = rdio;
     lptvc.tableData = tableData;
 }
 @end

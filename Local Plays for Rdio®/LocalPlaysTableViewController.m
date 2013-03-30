@@ -7,6 +7,7 @@
 //
 
 #import "LocalPlaysTableViewController.h"
+#import "RdioSearchResultsTableViewController.h"
 
 @interface LocalPlaysTableViewController ()
 
@@ -14,7 +15,7 @@
 
 @implementation LocalPlaysTableViewController
 
-@synthesize tableData, headerView, searchValue;
+@synthesize tableData, headerView, searchValue, rdio, searchResults;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -59,10 +60,13 @@
 - (void)didTapSearch:(id)sender {
     NSLog(@"Did tap search..");
     UITextField *searchTextField = (UITextField *)[self.headerView viewWithTag:9001];
+    [searchTextField resignFirstResponder];
     NSString *searchText = searchTextField.text;
     if (searchText.length > 3) {
         searchValue = searchText;
-        
+        //NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:searchValue, @"query", @"Track", @"types", @"20", @"count", nil];
+        NSLog(@"Calling Rdio API search");
+        [rdio callAPIMethod:@"search" withParameters:@{@"query":searchValue,@"types":@"Track",@"count":@"20"} delegate:self];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Local Plays" message:@"Search string must be at least 4 characters." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
         [alert show];
@@ -70,11 +74,19 @@
 }
 
 - (void)rdioRequest:(RDAPIRequest *)request didLoadData:(id)data {
-    
+    NSLog(@"Returned from API Call to Rdio");
+    NSLog(@"%@",data);
+    searchResults = (NSArray *)[(NSDictionary *)data objectForKey:@"results"];
+    [self performSegueWithIdentifier:@"mainToSearch" sender:self];
 }
 
 - (void)rdioRequest:(RDAPIRequest *)request didFailWithError:(NSError *)error {
-    
+    NSLog(@"%@",error);
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    RdioSearchResultsTableViewController *resultsController = (RdioSearchResultsTableViewController *)segue.destinationViewController;
+    resultsController.searchResults = searchResults;
 }
 
 #pragma mark - Table view data source

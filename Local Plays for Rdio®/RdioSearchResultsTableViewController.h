@@ -10,4 +10,6 @@
 
 @interface RdioSearchResultsTableViewController : UITableViewController
 
+@property (strong, nonatomic) NSArray *searchResults;
+
 @end
