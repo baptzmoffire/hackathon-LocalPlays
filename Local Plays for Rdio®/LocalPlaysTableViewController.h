@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LocalPlaysTableViewController.h
 //  Local Plays for Rdio®
 //
 //  Created by Fosco Marotto on 3/30/13.
@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <RdioDelegate>
+@interface LocalPlaysTableViewController : UITableViewController
 
-- (IBAction)didTapLogin:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (strong, nonatomic) NSArray *tableData;
 @property (strong, nonatomic) Rdio *rdio;
 
 @end

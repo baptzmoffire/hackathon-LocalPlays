@@ -38,6 +38,7 @@
 		6D97130B17075A4A00B50B57 /* launchBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D97130917075A4A00B50B57 /* launchBackground@2x.png */; };
 		6D97130E17075A5500B50B57 /* loginButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D97130C17075A5500B50B57 /* loginButton.png */; };
 		6D97130F17075A5500B50B57 /* loginButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D97130D17075A5500B50B57 /* loginButton@2x.png */; };
+		6D97131217075DFA00B50B57 /* LocalPlaysTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D97131117075DF900B50B57 /* LocalPlaysTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,8 @@
 		6D97130917075A4A00B50B57 /* launchBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launchBackground@2x.png"; sourceTree = "<group>"; };
 		6D97130C17075A5500B50B57 /* loginButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginButton.png; sourceTree = "<group>"; };
 		6D97130D17075A5500B50B57 /* loginButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginButton@2x.png"; sourceTree = "<group>"; };
+		6D97131017075DF900B50B57 /* LocalPlaysTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalPlaysTableViewController.h; sourceTree = "<group>"; };
+		6D97131117075DF900B50B57 /* LocalPlaysTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalPlaysTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,12 +158,13 @@
 		6D9712C4170754B900B50B57 /* Local Plays for Rdio® */ = {
 			isa = PBXGroup;
 			children = (
-				6D97130717075A3300B50B57 /* Graphics */,
 				6D9712CD170754B900B50B57 /* AppDelegate.h */,
 				6D9712CE170754B900B50B57 /* AppDelegate.m */,
 				6D9712D6170754B900B50B57 /* MainStoryboard.storyboard */,
 				6D9712D9170754B900B50B57 /* ViewController.h */,
 				6D9712DA170754B900B50B57 /* ViewController.m */,
+				6D97131017075DF900B50B57 /* LocalPlaysTableViewController.h */,
+				6D97131117075DF900B50B57 /* LocalPlaysTableViewController.m */,
 				6D9712C5170754B900B50B57 /* Supporting Files */,
 			);
 			path = "Local Plays for Rdio®";
@@ -169,6 +173,7 @@
 		6D9712C5170754B900B50B57 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6D97130717075A3300B50B57 /* Graphics */,
 				6D9712C6170754B900B50B57 /* Local Plays for Rdio®-Info.plist */,
 				6D9712C7170754B900B50B57 /* InfoPlist.strings */,
 				6D9712CA170754B900B50B57 /* main.m */,
@@ -264,6 +269,7 @@
 				6D9712CB170754B900B50B57 /* main.m in Sources */,
 				6D9712CF170754B900B50B57 /* AppDelegate.m in Sources */,
 				6D9712DB170754B900B50B57 /* ViewController.m in Sources */,
+				6D97131217075DFA00B50B57 /* LocalPlaysTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
